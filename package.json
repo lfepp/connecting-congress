@@ -1,0 +1,9 @@
+{
+  "name": "contact-congress",
+  "description": "Search for and contact your Congressman via social media",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
