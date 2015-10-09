@@ -3,7 +3,7 @@
 var root = 'https://congress.api.sunlightfoundation.com';
 var apiKey = 'c5be18657d7e405d886fd840845aa279';
 //HAVENT FINISHED FIELDS
-var fields = '?fields=';
+var fields = '&fields=';
 
 var express = require('express');
 var app = express();
