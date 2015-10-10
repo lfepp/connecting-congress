@@ -3,7 +3,7 @@
 // Query to call Sunlight Congress API
 var root = 'https://congress.api.sunlightfoundation.com/legislators/locate?';
 var apiKey = '&apikey=c5be18657d7e405d886fd840845aa279';
-var fields = '&fields=chamber,first_name,last_name,party,phone,oc_email,contact_form,facebook_id,twitter_id,youtube_id,website,state';
+var fields = '&fields=bioguide_id,chamber,first_name,last_name,party,phone,oc_email,contact_form,facebook_id,twitter_id,youtube_id,website,state';
 var zipCode = '';
 
 var express = require('express');
