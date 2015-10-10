@@ -5,10 +5,11 @@ var data = JSON.parse(passedData.substring(35));
 
 // Loop to cycle through each representative
 for (var rep in data.results) {
+  var chamber = data.results[rep].chamber.substring(0, 1).toUpperCase() + data.results[rep].chamber.substring(1);
   // Display rep name and party
   $('.rep-data').append('<div class="panel panel-default"><div class="panel-heading"><h2 class="panel-title">' + data.results[rep].first_name + ' ' + data.results[rep].last_name + ' </h2>' + data.results[rep].party + ' - ' + data.results[rep].state + '</div>'
   // Display rep chamber
-  + '<div class="panel-body ' + data.results[rep].bioguide_id + '"><strong>Chamber:</strong> ' + data.results[rep].chamber + '<br>'
+  + '<div class="panel-body ' + data.results[rep].bioguide_id + '"><strong>Chamber:</strong> ' + chamber + '<br>'
   // Display rep phone
   + '<strong>Phone:</strong> ' + data.results[rep].phone + '<br>'
   // Display rep email
