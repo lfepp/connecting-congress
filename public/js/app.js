@@ -1,7 +1,7 @@
 'use strict';
 
 var passedData = decodeURIComponent(window.location.href);
-var data = JSON.parse(passedData.substring(35));
+var data = JSON.parse(passedData.substring(passedData.indexOf("=") + 1));
 
 // Loop to cycle through each representative
 for (var rep in data.results) {
