@@ -9,6 +9,7 @@ var zipCode = '';
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var request = require('request');
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.text());
@@ -18,10 +19,23 @@ app.get('/', function(req, res) {
 })
 
 app.post('/api', function(req, res) {
-  res.sendFile(__dirname + '/public/views/contact.html');
   zipCode = req.body;
   var query = root + zipCode + apiKey + fields;
-  console.log(query);
+  request(query, function(error, response, body) {
+    if(error) {
+      console.error(error);
+    } else if(response.statusCode != 200) {
+      console.error('Error: Status Code: ' + response.statusCode);
+    } else {
+      res.redirect('/contact?data=' + body);
+    }
+  })
+})
+
+app.get('/contact', function(req, res) {
+  res.sendFile(__dirname + '/public/views/contact.html');
+  var passedData = req.query.data;
+  console.dir(JSON.parse(passedData));
 })
 
 app.listen(9000);
