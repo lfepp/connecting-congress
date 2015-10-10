@@ -34,8 +34,6 @@ app.post('/api', function(req, res) {
 
 app.get('/contact', function(req, res) {
   res.sendFile(__dirname + '/public/views/contact.html');
-  var passedData = req.query.data;
-  console.dir(JSON.parse(passedData));
 })
 
 app.listen(9000);
