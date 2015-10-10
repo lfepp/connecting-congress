@@ -10,12 +10,15 @@ var query = root + zipCode + apiKey + fields;
 var express = require('express');
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
 })
 
-app.get('/api', function(req, res) {
+app.post('/api', function(req, res) {
   res.sendFile(__dirname + '/public/views/contact.html');
+  console.log(req.body);
 })
 
 app.listen(9000);
