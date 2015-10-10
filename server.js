@@ -9,8 +9,10 @@ var query = root + zipCode + apiKey + fields;
 
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
@@ -18,7 +20,7 @@ app.get('/', function(req, res) {
 
 app.post('/api', function(req, res) {
   res.sendFile(__dirname + '/public/views/contact.html');
-  console.log(req.body);
+  console.dir(req.body);
 })
 
 app.listen(9000);
