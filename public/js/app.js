@@ -8,15 +8,16 @@ for (var rep in data.results) {
   // Display rep name and party
   $('.rep-data').append('<div class="panel panel-default"><div class="panel-heading"><h2 class="panel-title">' + data.results[rep].first_name + ' ' + data.results[rep].last_name + ' </h2>' + data.results[rep].party + ' - ' + data.results[rep].state + '</div>'
   // Display rep chamber
-  + '<div class="panel-body ' + data.results[rep].bioguide_id + '">Chamber: ' + data.results[rep].chamber + '<br>'
+  + '<div class="panel-body ' + data.results[rep].bioguide_id + '"><strong>Chamber:</strong> ' + data.results[rep].chamber + '<br>'
   // Display rep phone
-  + data.results[rep].phone + '<br>'
+  + '<strong>Phone:</strong> ' + data.results[rep].phone + '<br>'
   // Display rep email
-  + data.results[rep].oc_email + '<br>'
+  + '<strong>OpenCongress Email:</strong> ' + data.results[rep].oc_email + '<br>'
   // Display rep website
-  + data.results[rep].website + '<br>'
+  + '<strong>Website:</strong> ' + data.results[rep].website + '<br>'
   // Display/embed rep contact form
-  + data.results[rep].contact_form + '<br></div></div>');
+  + '<strong>Contact Form:</strong> ' + data.results[rep].contact_form + '<br><br>\
+  <strong>Social Media</strong><br></div></div>');
   // Display rep social channels (FB, Twitter, YT)
   if (data.results[rep].facebook_id != null) {
     $('.' + data.results[rep].bioguide_id).append('<a href="https://www.facebook.com/' + data.results[rep].facebook_id + '"><img class="logo" src="../img/facebook_logo.png"></a>');
