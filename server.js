@@ -12,5 +12,9 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
 })
 
+app.get('/api', function(req, res) {
+  res.sendFile(__dirname + '/public/views/contact.html');
+})
+
 app.listen(9000);
 module.exports = app;
