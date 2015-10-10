@@ -4,11 +4,20 @@ var data = JSON.parse(passedData.substring(35));
 // Loop to cycle through each representative
 for (var rep in data.results) {
   // Display rep name and party
-  $('.container').append('<div class="panel panel-default"><div class="panel-heading"><h2 class="panel-title">' + data.results[rep].first_name + ' ' + data.results[rep].last_name + ' </h2>' + data.results[rep].party + ' - ' + data.results[rep].state + '</div></div>');
+  $('.container').append('<div class="panel panel-default"><div class="panel-heading"><h2 class="panel-title">' + data.results[rep].first_name + ' ' + data.results[rep].last_name + ' </h2>' + data.results[rep].party + ' - ' + data.results[rep].state + '</div>'
   // Display rep chamber
+  + '<div class="panel-body">Chamber: ' + data.results[rep].chamber + '<br>'
   // Display rep phone
+  + data.results[rep].phone + '<br>'
   // Display rep email
+  + data.results[rep].oc_email + '<br>'
   // Display rep website
+  + data.results[rep].website + '<br>'
   // Display/embed rep contact form
+  + data.results[rep].contact_form + '<br>'
   // Display rep social channels (FB, Twitter, YT)
+  + '<a href="https://www.facebook.com/' + data.results[rep].facebook_id + '"><img class="logo" src="../img/facebook_logo.png"></a>'
+  + '<a href="https://www.twitter.com/' + data.results[rep].twitter_id + '"><img class="logo" src="../img/twitter_logo.png"></a>'
+  + '<a href="https://www.youtube.com/"' + data.results[rep].youtube_id + '"><img class="logo" src="../img/youtube_logo.png"></a>'
+  + '</div></div>');
 }
