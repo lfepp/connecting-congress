@@ -36,5 +36,5 @@ app.get('/contact', function(req, res) {
   res.sendFile(__dirname + '/public/views/contact.html');
 })
 
-app.listen(9000);
+app.listen(process.env.PORT || 9000);
 module.exports = app;
