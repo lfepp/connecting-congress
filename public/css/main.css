@@ -6,3 +6,7 @@
 .btn {
   margin-bottom: 30px;
 }
+
+.navbar-fixed-bottom {
+  background: #fff;
+}
