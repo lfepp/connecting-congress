@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <base href="/">
   <meta charset="utf-8">
-  <title>Connecting Congress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connecting Congress - Find out how to contact your local representative</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <script src="../lib/angular/angular.min.js"></script>
+  <script src="../lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/angular-routes.js"></script>
+  <script src="../js/controllers/main-controller.js"></script>
 </head>
-<body>
+<body ng-app="connectingCongress" ng-controller="MainController">
   <div class="container">
     <h1 class="page-header text-center">Contact Congress</h1>
     <p class="jumbotron text-center">Representatives should speak for their constituents but that can only happen if Representatives know how their constituents feel. Luckily, in today’s connected world it’s easier than ever to reach out to members of Congress. Social media and email have given us new, quick ways to contact our representatives and we should all take advantage of this connected age. So search below and find out how to contact your representatives today!</p>
-    <form action="api" method="post" enctype="text/plain" class="form-inline">
-      <div class="form-group">
-        <label for="searchForRep">Zip Code:</label>
-        <input type="text" class="form-control" id="searchForRep" name="zip" placeholder="Zip Code (11216)">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    <div ui-view></div>
   </div>
     <footer class="navbar navbar-fixed-bottom">
       <div class="container">
         <p class="text-muted">&copy; 2015 Lucas Epp. All rights reserved.</p>
       </div>
     </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
