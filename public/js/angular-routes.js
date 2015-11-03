@@ -8,4 +8,9 @@ $stateProvider
     templateUrl: 'views/home.html'
   })
 
+  .state('reps', {
+    url: '/representative-data',
+    templateUrl: 'views/contact.html'
+  })
+
 }]);
