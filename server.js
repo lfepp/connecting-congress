@@ -27,13 +27,9 @@ app.post('/api', function(req, res) {
     } else if(response.statusCode != 200) {
       console.error('Error: Status Code: ' + response.statusCode);
     } else {
-      res.redirect('/contact?data=' + body);
+      res.json(response.body);
     }
   })
-})
-
-app.get('/contact', function(req, res) {
-  res.sendFile(__dirname + '/public/views/contact.html');
 })
 
 app.listen(process.env.PORT || 9000);
