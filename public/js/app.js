@@ -1,1 +1,1 @@
-angular.module('connectingCongress', ['ui.router', 'angularRoutes', 'MainCtrl']);
+angular.module('connectingCongress', ['ui.router', 'angularRoutes', 'MainCtrl', 'MainService']);

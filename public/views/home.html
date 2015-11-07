@@ -1,7 +1,8 @@
 <form method="post" enctype="text/plain" class="form-inline">
   <div class="form-group">
     <label for="searchForRep">Zip Code:</label>
-    <input type="text" class="form-control" id="searchForRep" name="zip" placeholder="Zip Code (11216)">
+    <input type="text" class="form-control" id="searchForRep" ng-model="zipCode" placeholder="Zip Code (11216)">
   </div>
-  <button ui-sref="reps" type="submit" class="btn btn-default">Submit</button>
+  <button ui-sref="reps" ng-click="search()" type="submit" class="btn btn-default">Submit</button>
 </form>
+<p class="jumbotron">testing testing {{ zipCode }}</p>
