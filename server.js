@@ -1,25 +1,26 @@
 'use strict';
 
 // Query to call Sunlight Congress API
-//var root = 'https://congress.api.sunlightfoundation.com/legislators/locate?';
-//var apiKey = '&apikey=c5be18657d7e405d886fd840845aa279';
-//var fields = '&fields=bioguide_id,chamber,first_name,last_name,party,phone,oc_email,facebook_id,twitter_id,youtube_id,website,state';
-//var zipCode = '';
+var root = 'https://congress.api.sunlightfoundation.com/legislators/locate?';
+var apiKey = '&apikey=c5be18657d7e405d886fd840845aa279';
+var fields = '&fields=bioguide_id,chamber,first_name,last_name,party,phone,oc_email,facebook_id,twitter_id,youtube_id,website,state';
+var zipCode = '';
 
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-// var request = require('request');
+var request = require('request');
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.text());
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
 })
 
-/* app.post('/api', function(req, res) {
-  zipCode = req.body;
+app.post('/api', function(req, res) {
+  zipCode = req.params.zip;
+  console.log('Running call for ' + zipCode);
   var query = root + zipCode + apiKey + fields;
   request(query, function(error, response, body) {
     if(error) {
@@ -27,10 +28,10 @@ app.get('*', function(req, res) {
     } else if(response.statusCode != 200) {
       console.error('Error: Status Code: ' + response.statusCode);
     } else {
-      res.json(response.body);
+      return response;
     }
   })
-}) */
+})
 
 app.listen(process.env.PORT || 9000);
 module.exports = app;
