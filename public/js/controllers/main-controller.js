@@ -1,13 +1,12 @@
-angular.module('MainCtrl', []).controller('MainController', ['$scope', 'MainService', function($scope, MainService) {
+angular.module('MainCtrl', ['MainService']).controller('MainController', ['$scope', 'Reps', function($scope, Reps) {
   $scope.search = function() {
-    MainService.search($scope.zipCode)
+    Reps.search($scope.zipCode)
       .success(function(response) {
-        console.dir(response);
+        console.log('Success ' + response);
         $scope.test = 'success';
       })
       .error(function(response) {
-        console.error('ERROR ERROR ERROR');
-        console.dir(response);
+        console.log('Error ' + response);
         $scope.test = 'failure';
       })
   }
