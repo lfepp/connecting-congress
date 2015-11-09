@@ -26,10 +26,10 @@ app.post('/api', function(req, res) {
       console.error(error);
     } else if(response.statusCode != 200) {
       console.error('Error: Status Code: ' + response.statusCode);
-      console.log(response.body);
+      console.error(response.body);
     } else {
-      console.log('SUCCESS!!! ' + response.statusCode);
-      console.log(response.body);
+      console.log('Successful response');
+      res.send(response);
     }
   })
 })
