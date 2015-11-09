@@ -1,10 +1,10 @@
 'use strict';
 
 // Query to call Sunlight Congress API
-var root = 'https://congress.api.sunlightfoundation.com/legislators/locate?';
+var root = 'https://congress.api.sunlightfoundation.com/legislators/locate';
+var zipCode = '?zip=';
 var apiKey = '&apikey=c5be18657d7e405d886fd840845aa279';
 var fields = '&fields=bioguide_id,chamber,first_name,last_name,party,phone,oc_email,facebook_id,twitter_id,youtube_id,website,state';
-var zipCode = '';
 
 var express = require('express');
 var app = express();
@@ -19,16 +19,17 @@ app.get('/', function(req, res) {
 })
 
 app.post('/api', function(req, res) {
-  zipCode = req.params.zip;
-  console.log('Running call for ' + zipCode);
+  zipCode += req.query.zip;
   var query = root + zipCode + apiKey + fields;
   request(query, function(error, response, body) {
     if(error) {
       console.error(error);
     } else if(response.statusCode != 200) {
       console.error('Error: Status Code: ' + response.statusCode);
+      console.log(response.body);
     } else {
-      return response;
+      console.log('SUCCESS!!! ' + response.statusCode);
+      console.log(response.body);
     }
   })
 })
