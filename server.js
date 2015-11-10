@@ -1,8 +1,8 @@
 'use strict';
 
 // Query to call Sunlight Congress API
-var root = 'https://congress.api.sunlightfoundation.com/legislators/locate';
-var zipCode = '?zip=';
+var root = 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=';
+var zipCode = '';
 var apiKey = '&apikey=c5be18657d7e405d886fd840845aa279';
 var fields = '&fields=bioguide_id,chamber,first_name,last_name,party,phone,oc_email,facebook_id,twitter_id,youtube_id,website,state';
 
@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 })
 
 app.post('/api', function(req, res) {
-  zipCode += req.query.zip;
+  zipCode = req.query.zip;
   var query = root + zipCode + apiKey + fields;
   request(query, function(error, response, body) {
     if(error) {
