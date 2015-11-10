@@ -12,7 +12,7 @@ $stateProvider
   .state('reps', {
     url: '/representative-data',
     templateUrl: 'views/contact.html',
-    controller: 'MainController'
+    controller: 'RepsController'
   })
 
 }]);
