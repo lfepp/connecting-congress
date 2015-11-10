@@ -17,5 +17,6 @@ angular.module('MainCtrl', ['MainService']).controller('MainController', ['$scop
         console.log('Error ' + response);
         $scope.test = 'failure';
       })
+      $scope.test = 'tested';
   }
 }]);
