@@ -1,6 +1,14 @@
 <p class="page-header text-center">Your Representatives</p>
 <div id="error-alert" class="alert alert-danger" role="alert">{{ error }}</div>
-<div class="panel panel-default" ng-repeat="i in reps.results"><div class="panel-heading"><h2 class="panel-title">{{ i.first_name }}</h2></div></div>
+<div class="panel panel-default" ng-repeat="rep in reps.results">
+  <div class="panel-heading">
+    <h2 class="panel-title">{{ rep.first_name + ' ' + rep.last_name }}</h2>{{ rep.party + ' - ' + rep.state }}</div>
+<div class="panel-body">
+  <strong>Chamber:</strong> {{ rep.properChamber }}<br>
+  <strong>Phone:</strong> {{ rep.phone }}<br>
+  
+</div>
+</div>
 <form>
   <button ui-sref="home" type="submit" class="btn btn-default center-block">Back</button>
 </form>
