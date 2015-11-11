@@ -4,11 +4,16 @@
   <div class="panel-heading">
     <h2 class="panel-title">{{ rep.first_name + ' ' + rep.last_name }}</h2>{{ rep.party + ' - ' + rep.state }}</div>
 <div class="panel-body">
-  <strong>Chamber:</strong> {{ rep.properChamber }}<br>
-  <strong>Phone:</strong> {{ rep.phone }}<br>
-  
-</div>
-</div>
+  <strong>Chamber:</strong>{{ rep.properChamber }}<br>
+  <strong>Phone:</strong>{{ rep.phone }}<br>
+  <strong>OpenCongress Email:</strong><a href="mailto:{{ rep.email }}" target="_blank">{{ rep.email }}</a><br>
+  <strong>Website:</strong><a href="{{ rep.website }}" target="_blank">{{ rep.website }}</a><br>
+  <strong>Contact Form:</strong>{{ rep.contact_form }}<br><br>
+  <strong>Social Media</strong><br>
+  <a ng-if="rep.facebook_id" href="https://www.facebook.com/{{ rep.facebook_id }}" target="_blank"><img class="logo" src="../img/facebook_logo.png"></a>
+  <a ng-if="rep.twitter_id" href="https://www.twitter.com/{{ rep.twitter_id }}" target="_blank"><img class="logo" src="../img/twitter_logo.png"></a>
+  <a ng-if="rep.youtube_id" href="https://www.youtube.com/{{ rep.youtube_id }}" target="_blank"><img class="logo" src="../img/youtube_logo.png"></a>
+</div></div>
 <form>
   <button ui-sref="home" type="submit" class="btn btn-default center-block">Back</button>
 </form>
