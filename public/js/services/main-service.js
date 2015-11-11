@@ -1,4 +1,4 @@
-angular.module('MainService', []).factory('Reps', ['$http', function($http) {
+angular.module('MainService', []).factory('Reps', ['$http', '$rootScope', function($http, $rootScope) {
   var responseData = {};
 
   return {
@@ -13,23 +13,24 @@ angular.module('MainService', []).factory('Reps', ['$http', function($http) {
       .then(function successResponse(response) {
         if(JSON.parse(response.data.body).count < 1) {
           console.error('ERROR: INVALID ZIP CODE');
-          responseData = {
-            status: 'ERROR: INVALID ZIP CODE'
-          }
+          $rootScope.$broadcast('dataCollected', {
+            responseData: JSON.parse(response.data.body)
+          })
         } else {
           console.log('Success');
-          responseData = JSON.parse(response.data.body);
+          $rootScope.$broadcast('dataCollected', {
+            responseData: JSON.parse(response.data.body)
+          })
         }
       },
       function failureResponse(response) {
         console.log('Error ' + response);
-        responseData = {
-          status: 'Error'
-        }
+        $rootScope.$broadcast('dataCollected', {
+          responseData: JSON.parse(response.data.body)
+        })
       });
     },
     get: function() {
-      //NEED TO SET UP A WAY OF ENSURING WE DONT RETURN THIS UNTIL HTTP REQUEST IS COMPLETE
       return responseData;
     }
   }
