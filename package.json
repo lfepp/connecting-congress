@@ -1,11 +1,11 @@
 {
   "name": "connecting-congress",
   "description": "Search for and contact your Congressman via social media",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3",
-    "request": "^2.64.0"
+    "body-parser": "1.14.1",
+    "express": "4.13.3",
+    "request": "2.64.0"
   }
 }
