@@ -30,9 +30,11 @@ app.get('/', function(req, res) {
 })
 
 app.post('/api', function(req, res) {
-  zipCode = req.query.zip;
+  var zipCode = req.query.zip;
+  var levelsOption = 'country';
+  var rolesOptions = ['legislatorLowerBody', 'legislatorUpperBody'];
   var googleCivicOptions = {
-    url: googleCivicBaseURL + googleCivicKey + '&address=' + zipCode,
+    url: googleCivicBaseURL + googleCivicKey + '&address=' + zipCode + '&levels=' + levelsOption + '&roles=' + rolesOptions[0] + '&roles=' + rolesOptions[1],
   };
   request(query, function(error, response, body) {
     if(error) {
