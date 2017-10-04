@@ -14,9 +14,7 @@ var request = require('request');
 var config = JSON.parse(__dirname + 'config.json');
 
 var googleCivicKey = config.google.key;
-var googleCivicOptions = {
-  url: '',
-};
+var googleCivicBaseURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=';
 
 var proPublicaKey = config.propublica.key;
 var proPublicaOptions = {
@@ -33,7 +31,9 @@ app.get('/', function(req, res) {
 
 app.post('/api', function(req, res) {
   zipCode = req.query.zip;
-  var query = root + zipCode + apiKey + fields;
+  var googleCivicOptions = {
+    url: googleCivicBaseURL + googleCivicKey + '&address=' + zipCode,
+  };
   request(query, function(error, response, body) {
     if(error) {
       console.error(error);
