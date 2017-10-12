@@ -36,13 +36,14 @@ app.post('/api', function(req, res) {
   var rolesOptions = ['legislatorLowerBody', 'legislatorUpperBody'];
   var googleCivicOptions = {
     url: googleCivicBaseURL + googleCivicKey + '&address=' + zipCode + '&levels=' + levelsOption + '&roles=' + rolesOptions[0] + '&roles=' + rolesOptions[1],
+    headers: {'Referer': config.google.referer}
   };
-  request(query, function(error, response, body) {
+  request(googleCivicOptions, function(error, response, body) {
     if(error) {
       console.error(error);
     } else if(response.statusCode != 200) {
       console.error('Error: Status Code: ' + response.statusCode);
-      console.error(response.body);
+      console.dir(response);
     } else {
       console.log('Successful response');
       res.send(response);

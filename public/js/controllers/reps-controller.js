@@ -2,6 +2,7 @@ angular.module('RepsCtrl', ['MainService']).controller('RepsController', ['$scop
   $('#error-alert').hide();
   $scope.$on('dataCollected', function(event, responseData) {
     $scope.reps = responseData.responseData.officials;
+    console.dir($scope.reps);
     for(var i = 0; i < $scope.reps.length; i += 1) {
       for(var j = 0; j < $scope.reps[i].channels.length; j += 1) {
         switch ($scope.reps[i].channels[j].type) {

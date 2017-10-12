@@ -1,18 +1,20 @@
 <p class="page-header text-center">Your Representatives</p>
 <div id="error-alert" class="alert alert-danger" role="alert">{{ error }}</div>
-<div class="panel panel-default" ng-repeat="rep in reps.results">
+<div class="panel panel-default" ng-repeat="rep in reps">
   <div class="panel-heading">
-    <h2 class="panel-title">{{ rep.name }} </h2>{{ rep.party + ' - ' + rep.address.state }}</div>
-<div class="panel-body">
-  <!-- <strong>Chamber:</strong>{{ ' ' + rep.properChamber }}<br> -->
-  <strong>Phone: </strong>{{ rep.phones[0] }}<br>
-  <!-- <strong>OpenCongress Email:</strong><a href="mailto:{{ rep.oc_email }}" target="_blank">{{ ' ' + rep.oc_email }}</a><br> -->
-  <strong>Website: </strong><a href="{{ rep.website }}" target="_blank">{{ rep.urls[0] }}</a><br>
-  <strong>Social Media</strong><br>
-  <a ng-if="rep.facebook_id" href="https://www.facebook.com/{{ rep.facebook_id }}" target="_blank"><img class="logo" src="../img/facebook_logo.png"></a>
-  <a ng-if="rep.twitter_id" href="https://www.twitter.com/{{ rep.twitter_id }}" target="_blank"><img class="logo" src="../img/twitter_logo.png"></a>
-  <a ng-if="rep.youtube_id" href="https://www.youtube.com/{{ rep.youtube_id }}" target="_blank"><img class="logo" src="../img/youtube_logo.png"></a>
-</div></div>
+    <h2 class="panel-title">{{ rep.name }} </h2>{{ rep.party + ' - ' + rep.address[0].state }}
+  </div>
+  <div class="panel-body">
+    <!-- <strong>Chamber:</strong>{{ ' ' + rep.properChamber }}<br> -->
+    <strong>Phone: </strong>{{ rep.phones[0] }}<br>
+    <!-- <strong>OpenCongress Email:</strong><a href="mailto:{{ rep.oc_email }}" target="_blank">{{ ' ' + rep.oc_email }}</a><br> -->
+    <strong>Website: </strong><a href="{{ rep.website }}" target="_blank">{{ rep.urls[0] }}</a><br>
+    <strong>Social Media</strong><br>
+    <a ng-if="rep.facebook_id" href="https://www.facebook.com/{{ rep.facebook_id }}" target="_blank"><img class="logo" src="../img/facebook_logo.png"></a>
+    <a ng-if="rep.twitter_id" href="https://www.twitter.com/{{ rep.twitter_id }}" target="_blank"><img class="logo" src="../img/twitter_logo.png"></a>
+    <a ng-if="rep.youtube_id" href="https://www.youtube.com/{{ rep.youtube_id }}" target="_blank"><img class="logo" src="../img/youtube_logo.png"></a>
+  </div>
+</div>
 <form>
   <button ui-sref="home" type="submit" class="btn btn-default center-block">Back</button>
 </form>
