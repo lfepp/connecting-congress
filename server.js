@@ -13,8 +13,14 @@ var request = require('request');
 var fs = require('fs');
 
 var config = JSON.parse(fs.readFileSync(__dirname + '/config.json', 'utf8'));
+if (!process.env.API_KEY) {
+  process.env.API_KEY = config.google.key;
+}
+if (!process.env.REFERER) {
+  process.env.REFERER = config.google.referer;
+}
 
-var googleCivicKey = config.google.key;
+var googleCivicKey = process.env.API_KEY;
 var googleCivicBaseURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=';
 
 var proPublicaKey = config.propublica.key;
@@ -36,7 +42,7 @@ app.post('/api', function(req, res) {
   var rolesOptions = ['legislatorLowerBody', 'legislatorUpperBody'];
   var googleCivicOptions = {
     url: googleCivicBaseURL + googleCivicKey + '&address=' + zipCode + '&levels=' + levelsOption + '&roles=' + rolesOptions[0] + '&roles=' + rolesOptions[1],
-    headers: {'Referer': config.google.referer}
+    headers: {'Referer': process.env.REFERER}
   };
   request(googleCivicOptions, function(error, response, body) {
     if(error) {
