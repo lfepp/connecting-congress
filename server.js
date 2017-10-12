@@ -12,22 +12,20 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var fs = require('fs');
 
-var config = JSON.parse(fs.readFileSync(__dirname + '/config.json', 'utf8'));
-if (!process.env.API_KEY) {
+if (!process.env.API_KEY && !process.env.REFERER) {
+  var config = JSON.parse(fs.readFileSync(__dirname + '/config.json', 'utf8'));
   process.env.API_KEY = config.google.key;
-}
-if (!process.env.REFERER) {
   process.env.REFERER = config.google.referer;
 }
 
 var googleCivicKey = process.env.API_KEY;
 var googleCivicBaseURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=';
-
-var proPublicaKey = config.propublica.key;
-var proPublicaOptions = {
-  url: '',
-  headers: {},
-};
+//
+// var proPublicaKey = config.propublica.key;
+// var proPublicaOptions = {
+//   url: '',
+//   headers: {},
+// };
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.text());
