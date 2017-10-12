@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var fs = require('fs');
 
-var config = JSON.parse(fs.readFileSync(__dirname + 'config.json', 'utf8'));
+var config = JSON.parse(fs.readFileSync(__dirname + '/config.json', 'utf8'));
 
 var googleCivicKey = config.google.key;
 var googleCivicBaseURL = 'https://www.googleapis.com/civicinfo/v2/representatives?key=';
