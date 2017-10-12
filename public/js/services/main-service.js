@@ -18,13 +18,14 @@ angular.module('MainService', []).factory('Reps', ['$http', '$rootScope', functi
           })
         } else {
           console.log('Success');
+          console.dir(JSON.parse(response.data.body));
           $rootScope.$broadcast('dataCollected', {
             responseData: JSON.parse(response.data.body)
           })
         }
       },
       function failureResponse(response) {
-        console.log('Error ' + response);
+        console.dir(response);
         $rootScope.$broadcast('dataCollected', {
           responseData: JSON.parse(response.data.body)
         })
